@@ -11,6 +11,7 @@ import com.guidelines.demo.model.response.ResponseMessage;
 import com.guidelines.demo.repository.CompanyRepository;
 import com.guidelines.demo.repository.CompanyTypeRepository;
 import com.guidelines.demo.service.CompanyService;
+import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
@@ -29,15 +30,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepository companyRepository;
     private final CompanyTypeRepository companyTypeRepository;
     private static final Logger log = LogManager.getLogger(CompanyServiceImpl.class);
-
-    public CompanyServiceImpl(CompanyRepository companyRepository, CompanyTypeRepository companyTypeRepository) {
-        this.companyRepository = companyRepository;
-        this.companyTypeRepository = companyTypeRepository;
-    }
 
     @Override
     public PaginationDataResponse<CompanyDTO> getDataWithPagination(int page, int limit, String sortField, String sortOrder) {
