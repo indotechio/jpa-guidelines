@@ -28,7 +28,8 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    public static final String ENTITAS_TAG = "Entitas Service";
+    public static final String ENTITAS_TAG = "Company Service";
+    public static final String DOMAIN = "https://indotech.io/";
     private ApiKey apiKey() {
         return new ApiKey("JWT", "Authorization", "header");
     }
@@ -54,7 +55,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .securitySchemes(Collections.singletonList(apiKey()))
                 .securityContexts(Collections.singletonList(securityContext()))
-                .tags(new Tag(ENTITAS_TAG, "Kumpulan API Entitas"));
+                .tags(new Tag(ENTITAS_TAG, "Collection of Company Data Services"));
     }
 
     private ApiInfo apiInfo() {
@@ -62,9 +63,9 @@ public class SwaggerConfig {
                 "Demo-App-Service",
                 "RESTful API For Spring Boot Guidelines",
                 "0.0.1",
-                "https://www.beacukai.go.id/",
-                new Contact("Bea Cukai", "https://jira.beacukai.go.id/", "info@beacukai.go.id"),
-                "For Internal Usage Only", "https://beacukai.go.id/", Collections.emptyList()
+                DOMAIN,
+                new Contact("Indo Tech", DOMAIN, "admin@indotech.io"),
+                "For Education Only", DOMAIN, Collections.emptyList()
         );
     }
 
