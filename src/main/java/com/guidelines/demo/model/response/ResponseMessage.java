@@ -1,8 +1,5 @@
 package com.guidelines.demo.model.response;
 
-import lombok.Getter;
-
-@Getter
 public final class ResponseMessage {
     private ResponseMessage() {
         throw new UnsupportedOperationException("This is a constant class and cannot be instantiated");
